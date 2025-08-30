@@ -120,13 +120,15 @@ export default function Home() {
           <nav className="text-center">
             <ul className="space-y-6">
               <li className="animate-fadeInUp" style={{ animationDelay: '1.1s' }}>
-                <a 
-                  href="#" 
-                  onClick={() => setIsMenuOpen(false)}
+                <Link 
+                  href="/"
+                  onClick={() => {
+                    setTimeout(() => setIsMenuOpen(false), 100)
+                  }}
                   className="font-playfair font-light text-brown text-lg md:text-xl lg:text-2xl tracking-wider hover:text-gray-800 transition-all duration-500 cursor-pointer block"
                 >
                   HEM
-                </a>
+                </Link>
               </li>
               <li className="animate-fadeInUp" style={{ animationDelay: '1.25s' }}>
                 <a href="#" className="font-playfair font-light text-brown text-lg md:text-xl lg:text-2xl tracking-wider hover:text-gray-800 transition-all duration-500 cursor-pointer block">
@@ -141,7 +143,9 @@ export default function Home() {
               <li className="animate-fadeInUp" style={{ animationDelay: '1.55s' }}>
                 <Link 
                   href="/interior-design-homestyling"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    setTimeout(() => setIsMenuOpen(false), 100)
+                  }}
                   className="font-playfair font-light text-brown text-lg md:text-xl lg:text-2xl tracking-wider hover:text-gray-800 transition-all duration-500 cursor-pointer block"
                 >
                   Interiördesign/Homestyling
@@ -160,7 +164,9 @@ export default function Home() {
               <li className="animate-fadeInUp" style={{ animationDelay: '2.0s' }}>
                 <Link 
                   href="/kontakt"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    setTimeout(() => setIsMenuOpen(false), 100)
+                  }}
                   className="font-playfair font-light text-brown text-lg md:text-xl lg:text-2xl tracking-wider hover:text-gray-800 transition-all duration-500 cursor-pointer block"
                 >
                   Kontakt

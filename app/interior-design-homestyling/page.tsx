@@ -100,7 +100,9 @@ export default function InteriorDesign() {
               <li className="animate-fadeInUp" style={{ animationDelay: '1.1s' }}>
                 <Link 
                   href="/"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    setTimeout(() => setIsMenuOpen(false), 100)
+                  }}
                   className="font-playfair font-light text-brown text-lg md:text-xl lg:text-2xl tracking-wider hover:text-gray-800 transition-all duration-500 cursor-pointer block"
                 >
                   HEM
@@ -117,13 +119,15 @@ export default function InteriorDesign() {
                 </a>
               </li>
                              <li className="animate-fadeInUp" style={{ animationDelay: '1.55s' }}>
-                 <Link 
-                   href="/interior-design-homestyling"
-                   onClick={() => setIsMenuOpen(false)}
-                   className="font-playfair font-light text-brown text-lg md:text-xl lg:text-2xl tracking-wider hover:text-gray-800 transition-all duration-500 cursor-pointer block"
-                 >
-                   Interiördesign/Homestyling
-                 </Link>
+                                 <Link 
+                  href="/interior-design-homestyling"
+                  onClick={() => {
+                    setTimeout(() => setIsMenuOpen(false), 100)
+                  }}
+                  className="font-playfair font-light text-brown text-lg md:text-xl lg:text-2xl tracking-wider hover:text-gray-800 transition-all duration-500 cursor-pointer block"
+                >
+                  Interiördesign/Homestyling
+                </Link>
                </li>
               <li className="animate-fadeInUp" style={{ animationDelay: '1.7s' }}>
                 <a href="#" className="font-playfair font-light text-brown text-lg md:text-xl lg:text-2xl tracking-wider hover:text-gray-800 transition-all duration-500 cursor-pointer block">
@@ -138,7 +142,9 @@ export default function InteriorDesign() {
               <li className="animate-fadeInUp" style={{ animationDelay: '2.0s' }}>
                 <Link 
                   href="/kontakt"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    setTimeout(() => setIsMenuOpen(false), 100)
+                  }}
                   className="font-playfair font-light text-brown text-lg md:text-xl lg:text-2xl tracking-wider hover:text-gray-800 transition-all duration-500 cursor-pointer block"
                 >
                   Kontakt
