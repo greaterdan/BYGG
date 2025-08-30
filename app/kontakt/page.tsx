@@ -43,7 +43,7 @@ export default function Kontakt() {
         </button>
 
         {/* Main Content */}
-        <div className="flex-1 flex flex-col px-4">
+        <div className="flex-1 flex flex-col px-4" key="contact-page-v2">
           {/* Logo at the top */}
           <div className="absolute top-8 left-1/2 transform -translate-x-1/2 text-center">
             <img 
@@ -54,10 +54,10 @@ export default function Kontakt() {
           </div>
           
           {/* Content Section - Centered */}
-          <div className="flex-1 flex flex-col items-center justify-center -mt-8">
+          <div className="flex-1 flex flex-col items-center justify-center -mt-16 contact-page-header">
             <div className="w-full max-w-4xl">
               {/* Header */}
-              <div className="text-center mb-8 animate-fadeInUp">
+              <div className="text-center mb-6 animate-fadeInUp">
                 <h1 className="font-playfair font-light text-brown text-3xl md:text-4xl lg:text-5xl tracking-wider mb-4">
                   Kontakt
                 </h1>

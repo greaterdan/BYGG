@@ -198,6 +198,11 @@ video[style*="mask"] {
           opacity: 0;
         }
 
+        /* Force consistent contact page positioning */
+        .contact-page-header {
+          margin-top: -4rem !important;
+        }
+
         /* Shake animation for contact icon */
         @keyframes shake {
           0%, 100% {
