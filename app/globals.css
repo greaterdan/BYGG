@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Playfair+Display:wght@300;400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 248, 246, 242;
+  --background-end-rgb: 248, 246, 242;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Custom animations for menu items */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* Prevent video flash on load */
+video {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+video[style*="mask"] {
+  opacity: 1;
+}
+
+/* Dropdown menu animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 1.2s ease-out forwards;
+}
+
+/* Silk smooth background color animation */
+@keyframes silkSmoothColorShift {
+  0% {
+    background-color: #f8f6f2;
+  }
+  4% {
+    background-color: #f7f4f0;
+  }
+  8% {
+    background-color: #f6f2ee;
+  }
+  12% {
+    background-color: #f5f0ec;
+  }
+  16% {
+    background-color: #f4eee8;
+  }
+  20% {
+    background-color: #f3ece6;
+  }
+  24% {
+    background-color: #f2eae4;
+  }
+  28% {
+    background-color: #f1e8e2;
+  }
+  32% {
+    background-color: #f0e6e0;
+  }
+  36% {
+    background-color: #efe4de;
+  }
+  40% {
+    background-color: #eee2dc;
+  }
+  44% {
+    background-color: #ede0da;
+  }
+  48% {
+    background-color: #ecded8;
+  }
+  52% {
+    background-color: #ebdcd6;
+  }
+  56% {
+    background-color: #eadad4;
+  }
+  60% {
+    background-color: #e9d8d2;
+  }
+  64% {
+    background-color: #eadad4;
+  }
+  68% {
+    background-color: #ebdcd6;
+  }
+  72% {
+    background-color: #ecded8;
+  }
+  76% {
+    background-color: #ede0da;
+  }
+  80% {
+    background-color: #eee2dc;
+  }
+  84% {
+    background-color: #efe4de;
+  }
+  88% {
+    background-color: #f0e6e0;
+  }
+  92% {
+    background-color: #f1e8e2;
+  }
+  96% {
+    background-color: #f2eae4;
+  }
+  100% {
+    background-color: #f8f6f2;
+  }
+}
+
+.animate-subtle-bg {
+  animation: silkSmoothColorShift 60s ease-in-out infinite;
+  background-color: #f8f6f2; /* Prevent white flash on load */
+}
+
+/* Dramatic fade in animations for page load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 2s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fadeInScale {
+  animation: fadeInScale 2.5s ease-out forwards;
+  opacity: 0;
+}
