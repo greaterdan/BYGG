@@ -54,10 +54,10 @@ export default function Kontakt() {
           </div>
           
           {/* Content Section - Centered */}
-          <div className="flex-1 flex flex-col items-center justify-center">
+          <div className="flex-1 flex flex-col items-center justify-center -mt-8">
             <div className="w-full max-w-4xl">
               {/* Header */}
-              <div className="text-center mb-12 animate-fadeInUp">
+              <div className="text-center mb-8 animate-fadeInUp">
                 <h1 className="font-playfair font-light text-brown text-3xl md:text-4xl lg:text-5xl tracking-wider mb-4">
                   Kontakt
                 </h1>
