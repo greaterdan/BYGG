@@ -3,8 +3,28 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-export default function InteriorDesign() {
+export default function Kontakt() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [selectedDate, setSelectedDate] = useState('')
+  const [selectedTime, setSelectedTime] = useState('')
+  const [userMessage, setUserMessage] = useState('')
+  const [userName, setUserName] = useState('')
+  const [userEmail, setUserEmail] = useState('')
+  const [userPhone, setUserPhone] = useState('')
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Here you would typically send the data to your backend
+    console.log('Booking submitted:', {
+      date: selectedDate,
+      time: selectedTime,
+      name: userName,
+      email: userEmail,
+      phone: userPhone,
+      message: userMessage
+    })
+    alert('Tack för din bokning! Vi återkommer snart.')
+  }
 
   return (
     <main className="h-screen bg-white relative overflow-hidden p-4">
@@ -39,32 +59,141 @@ export default function InteriorDesign() {
               {/* Header */}
               <div className="text-center mb-12 animate-fadeInUp">
                 <h1 className="font-playfair font-light text-brown text-3xl md:text-4xl lg:text-5xl tracking-wider mb-4">
-                  Interiördesign/Homestyling
+                  Kontakt
                 </h1>
               </div>
 
-              {/* Content */}
-              <div className="animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
-                <div className="prose prose-lg max-w-none">
-                  <p className="font-playfair font-light text-brown text-lg md:text-xl leading-relaxed mb-8">
-                    Ett hem är aldrig bara väggar, golv och tak. Det är platsen där livet händer – där vardagen får ta plats och där minnen byggs. Därför är interiördesign för oss mer än att bara välja färger eller möbler. Det handlar om att skapa en känsla. En känsla av harmoni, balans och personlighet.
-                  </p>
+              {/* Contact Information */}
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                {/* Contact Details */}
+                <div className="animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
+                  <h2 className="font-playfair font-light text-brown text-2xl md:text-3xl tracking-wider mb-6">
+                    Kontaktinformation
+                  </h2>
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="font-playfair font-light text-brown text-lg font-medium mb-2">Telefon</h3>
+                      <p className="font-playfair font-light text-brown text-lg">+46 70 123 45 67</p>
+                    </div>
+                    <div>
+                      <h3 className="font-playfair font-light text-brown text-lg font-medium mb-2">E-post</h3>
+                      <p className="font-playfair font-light text-brown text-lg">info@finthem.nu</p>
+                    </div>
+                    <div>
+                      <h3 className="font-playfair font-light text-brown text-lg font-medium mb-2">Adress</h3>
+                      <p className="font-playfair font-light text-brown text-lg">
+                        Storgatan 123<br />
+                        123 45 Stockholm<br />
+                        Sverige
+                      </p>
+                    </div>
+                    <div>
+                      <h3 className="font-playfair font-light text-brown text-lg font-medium mb-2">Öppettider</h3>
+                      <p className="font-playfair font-light text-brown text-lg">
+                        Måndag - Fredag: 08:00 - 17:00<br />
+                        Lördag: 09:00 - 15:00<br />
+                        Söndag: Stängt
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-                  <p className="font-playfair font-light text-brown text-lg md:text-xl leading-relaxed mb-8">
-                    Vi erbjuder helhetslösningar inom interiördesign där vi alltid utgår från dig, dina behov och din livsstil. Tillsammans formar vi miljöer som inte bara är vackra, utan också praktiska och hållbara över tid. Allt från materialval och färgsättning till möblering och detaljer planeras med omsorg – så att ditt hem blir precis så som du vill ha det, både idag och imorgon.
-                  </p>
-
-                  <p className="font-playfair font-light text-brown text-lg md:text-xl leading-relaxed mb-8">
-                    För dig som står inför en bostadsförsäljning har vi även möjlighet att hjälpa till med möblering och homestyling. Vi vet hur avgörande det första intrycket är och hur mycket rätt känsla kan påverka slutpriset. Med noga utvalda möbler, rätt ljus och balanserade färgval kan vi lyfta fram hemmets bästa sidor och skapa en atmosfär som tilltalar spekulanterna – samtidigt som det känns naturligt och inbjudande.
-                  </p>
-
-                  <p className="font-playfair font-light text-brown text-lg md:text-xl leading-relaxed mb-8">
-                    Vår filosofi är enkel: varje hem har potential. Vårt uppdrag är att hjälpa dig att frigöra den. Oavsett om du vill skapa ditt drömhem att leva i, eller om du vill maximera värdet vid en försäljning, kan du lita på vår erfarenhet, vårt öga för detaljer och vår förståelse för vad som gör ett hem till något mer än bara en bostad.
-                  </p>
-
-                  <p className="font-playfair font-light text-brown text-lg md:text-xl leading-relaxed">
-                    Vi finns här för att göra din vision till verklighet – med trygghet, engagemang och en genuin känsla för design.
-                  </p>
+                {/* Booking Form */}
+                <div className="animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
+                  <h2 className="font-playfair font-light text-brown text-2xl md:text-3xl tracking-wider mb-6">
+                    Kostnadsfri besiktning på plats
+                  </h2>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <label className="block font-playfair font-light text-brown text-lg mb-2">
+                        Namn *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={userName}
+                        onChange={(e) => setUserName(e.target.value)}
+                        className="w-full px-4 py-3 border border-brown/30 rounded-lg focus:outline-none focus:border-brown font-playfair font-light text-brown bg-white/80"
+                        placeholder="Ditt namn"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block font-playfair font-light text-brown text-lg mb-2">
+                        E-post *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={userEmail}
+                        onChange={(e) => setUserEmail(e.target.value)}
+                        className="w-full px-4 py-3 border border-brown/30 rounded-lg focus:outline-none focus:border-brown font-playfair font-light text-brown bg-white/80"
+                        placeholder="din.email@example.com"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block font-playfair font-light text-brown text-lg mb-2">
+                        Telefon
+                      </label>
+                      <input
+                        type="tel"
+                        value={userPhone}
+                        onChange={(e) => setUserPhone(e.target.value)}
+                        className="w-full px-4 py-3 border border-brown/30 rounded-lg focus:outline-none focus:border-brown font-playfair font-light text-brown bg-white/80"
+                        placeholder="070 123 45 67"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block font-playfair font-light text-brown text-lg mb-2">
+                        Önskat datum *
+                      </label>
+                      <input
+                        type="date"
+                        required
+                        value={selectedDate}
+                        onChange={(e) => setSelectedDate(e.target.value)}
+                        min={new Date().toISOString().split('T')[0]}
+                        className="w-full px-4 py-3 border border-brown/30 rounded-lg focus:outline-none focus:border-brown font-playfair font-light text-brown bg-white/80"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block font-playfair font-light text-brown text-lg mb-2">
+                        Önskad tid *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={selectedTime}
+                        onChange={(e) => setSelectedTime(e.target.value)}
+                        className="w-full px-4 py-3 border border-brown/30 rounded-lg focus:outline-none focus:border-brown font-playfair font-light text-brown bg-white/80"
+                        placeholder="Till exempel: 14:30, efter lunch, förmiddag, etc."
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block font-playfair font-light text-brown text-lg mb-2">
+                        Beskriv vad ni behöver hjälp med *
+                      </label>
+                      <textarea
+                        required
+                        value={userMessage}
+                        onChange={(e) => setUserMessage(e.target.value)}
+                        rows={4}
+                        className="w-full px-4 py-3 border border-brown/30 rounded-lg focus:outline-none focus:border-brown font-playfair font-light text-brown bg-white/80 resize-none"
+                        placeholder="Beskriv kortfattat vad ni behöver hjälp med. Till exempel: Renovering av kök, nytt badrum, tillbyggnad, etc."
+                      />
+                    </div>
+                    
+                    <button
+                      type="submit"
+                      className="w-full bg-brown text-white font-playfair font-light text-lg py-3 px-6 rounded-lg hover:bg-brown/80 transition-colors duration-300 mt-6"
+                    >
+                      Boka kostnadsfri besiktning
+                    </button>
+                  </form>
                 </div>
               </div>
 
@@ -116,15 +245,15 @@ export default function InteriorDesign() {
                   Byggservice
                 </a>
               </li>
-                             <li className="animate-fadeInUp" style={{ animationDelay: '1.55s' }}>
-                 <Link 
-                   href="/interior-design-homestyling"
-                   onClick={() => setIsMenuOpen(false)}
-                   className="font-playfair font-light text-brown text-lg md:text-xl lg:text-2xl tracking-wider hover:text-gray-800 transition-all duration-500 cursor-pointer block"
-                 >
-                   Interiördesign/Homestyling
-                 </Link>
-               </li>
+              <li className="animate-fadeInUp" style={{ animationDelay: '1.55s' }}>
+                <Link 
+                  href="/interior-design-homestyling"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="font-playfair font-light text-brown text-lg md:text-xl lg:text-2xl tracking-wider hover:text-gray-800 transition-all duration-500 cursor-pointer block"
+                >
+                  Interiördesign/Homestyling
+                </Link>
+              </li>
               <li className="animate-fadeInUp" style={{ animationDelay: '1.7s' }}>
                 <a href="#" className="font-playfair font-light text-brown text-lg md:text-xl lg:text-2xl tracking-wider hover:text-gray-800 transition-all duration-500 cursor-pointer block">
                   Referenser

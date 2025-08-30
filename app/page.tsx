@@ -1,12 +1,23 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useVideoMask } from './hooks/useVideoMask'
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isShaking, setIsShaking] = useState(false)
   const maskStyle = useVideoMask()
+
+  // Shake animation every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsShaking(true)
+      setTimeout(() => setIsShaking(false), 600) // Reset after animation completes
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <main className="h-screen bg-white relative overflow-hidden p-4">
@@ -23,6 +34,17 @@ export default function Home() {
             <span className={`w-full h-0.5 bg-gray-800 transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
           </div>
         </button>
+
+        {/* Contact Icon - Upper Right Corner */}
+        <Link
+          href="/kontakt"
+          className="fixed top-8 right-8 z-50 p-2 hover:bg-white/10 rounded-lg transition-colors duration-200 animate-fadeIn"
+          aria-label="Contact"
+        >
+          <svg className={`w-8 h-8 text-gray-800 ${isShaking ? 'animate-shake' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        </Link>
 
         {/* Main Content - First Section */}
         <div className="flex-1 flex flex-col px-4">
@@ -60,23 +82,23 @@ export default function Home() {
           {/* Navigation Text - Bottom of First Section */}
           <div className="mt-auto mb-8 md:mb-12 animate-fadeInUp" style={{ animationDelay: '1.8s' }}>
             <nav className="text-center">
-              <ul className="font-playfair font-light text-brown tracking-wider space-y-2 md:space-y-0 md:space-x-8 md:flex md:items-center md:justify-center text-lg md:text-xl lg:text-2xl">
-                <li className="hover:text-gray-800 transition-colors duration-200 cursor-pointer">
-                  Private Residential
-                </li>
-                <li className="hidden md:block text-brown/50">/</li>
-                <li className="hover:text-gray-800 transition-colors duration-200 cursor-pointer">
-                  Residential Developments
-                </li>
-                <li className="hidden md:block text-brown/50">/</li>
-                <li className="hover:text-gray-800 transition-colors duration-200 cursor-pointer">
-                  Marine
-                </li>
-                <li className="hidden md:block text-brown/50">/</li>
-                <li className="hover:text-gray-800 transition-colors duration-200 cursor-pointer">
-                  Aviation
-                </li>
-              </ul>
+                                    <ul className="font-playfair font-light text-brown tracking-wider space-y-2 md:space-y-0 md:space-x-8 md:flex md:items-center md:justify-center text-lg md:text-xl lg:text-2xl">
+                        <li className="hover:text-gray-800 transition-colors duration-200 cursor-pointer">
+                          Ditt Nya Hem
+                        </li>
+                        <li className="hidden md:block text-brown/50">/</li>
+                        <li className="hover:text-gray-800 transition-colors duration-200 cursor-pointer">
+                          Renovering & Förändring
+                        </li>
+                        <li className="hidden md:block text-brown/50">/</li>
+                        <li className="hover:text-gray-800 transition-colors duration-200 cursor-pointer">
+                          Byggservice
+                        </li>
+                        <li className="hidden md:block text-brown/50">/</li>
+                        <li className="hover:text-gray-800 transition-colors duration-200 cursor-pointer">
+                          Inredning & Styling
+                        </li>
+                      </ul>
             </nav>
           </div>
         </div>
@@ -136,9 +158,13 @@ export default function Home() {
                 </a>
               </li>
               <li className="animate-fadeInUp" style={{ animationDelay: '2.0s' }}>
-                <a href="#" className="font-playfair font-light text-brown text-lg md:text-xl lg:text-2xl tracking-wider hover:text-gray-800 transition-all duration-500 cursor-pointer block">
+                <Link 
+                  href="/kontakt"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="font-playfair font-light text-brown text-lg md:text-xl lg:text-2xl tracking-wider hover:text-gray-800 transition-all duration-500 cursor-pointer block"
+                >
                   Kontakt
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
